@@ -22,9 +22,9 @@ import org.micromanager.utils.ReportingUtils;
 public class Processor {
 
     private Sequence                    parent;
-    private LinkedList<TreeMap>         images      = new LinkedList<TreeMap>();
-    private LinkedList<CalciumImage>    difference  = new LinkedList<CalciumImage>();
-    private LinkedList<double[][]>      cumDiff     = new LinkedList<double[][]>();
+    private LinkedList<TreeMap>         images      = new LinkedList<>();
+    private LinkedList<CalciumImage>    difference  = new LinkedList<>();
+    private LinkedList<double[][]>      cumDiff     = new LinkedList<>();
     private int                         width, height;
     private static ShortProcessor[]     diffImage; 
 
@@ -74,7 +74,7 @@ public class Processor {
     public void addSequence () {
         if (!CalciumImaging.dialog.storeAllRawCheckbox.isSelected())
             removeLast();
-        TreeMap<String,LinkedList> sequence = new TreeMap<String,LinkedList>();
+        TreeMap<String,LinkedList> sequence = new TreeMap<>();
         sequence.put("pre",  parent.preLabel.getImages());
         sequence.put("post", parent.postLabel.getImages());
         loadMean(sequence);
@@ -162,10 +162,8 @@ public class Processor {
         ShortProcessor diff  = new ShortProcessor(width, height);
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
-                diff.putPixel(x, y, (int) ((values[x][y])));
+                diff.putPixel(x, y, (short) ((values[x][y])));
 
-        diff.set(0, 0, 0);
-        diff.set(0, 1, Short.MAX_VALUE);
         return CalciumImage.fromImage(diff.getBufferedImage());
     }
 
@@ -213,7 +211,7 @@ public class Processor {
         }
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
-                mean.set(x, y, ((int) (values[x][y] / size)));
+                mean.set(x, y, ((short) (values[x][y] / size)));
 
         sequence.put("mean", mean);
     }
