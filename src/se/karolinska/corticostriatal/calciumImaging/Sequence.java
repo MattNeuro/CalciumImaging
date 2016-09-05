@@ -132,8 +132,8 @@ public class Sequence extends Thread {
     private void runSequence () throws Exception {       
         acquireSequence();
 
-        grabImages(8, preLabel);
-        grabImages(16, postLabel);
+        grabImages(8,   preLabel);
+        grabImages(16,  postLabel);
 
         pulse.closeShutter();
         

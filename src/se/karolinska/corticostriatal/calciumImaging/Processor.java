@@ -200,9 +200,6 @@ public class Processor {
         ShortProcessor mean     = new ShortProcessor(width, height);
         ShortProcessor curr;
 
-        for (int x = 0; x < width; x++)
-            for (int y = 0; y < height; y++)
-                values[x][y] = 0;
         for (int i = 0; i < pre.size(); i++) {
             curr    = new ShortProcessor(pre.get(i));
             for (int x = 0; x < width; x++)
@@ -211,7 +208,7 @@ public class Processor {
         }
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
-                mean.set(x, y, ((short) (values[x][y] / size)));
+                mean.set(x, y, ((int) (values[x][y] / size)));
 
         sequence.put("mean", mean);
     }
@@ -260,8 +257,8 @@ public class Processor {
             for (int y = 0; y < height; y++) {
                 if ((image[x][y] - total) < 0)
                     image[x][y] = 0;
-                else if (image[x][y] - total > Short.MAX_VALUE)
-                    image[x][y] = Short.MAX_VALUE;
+                else if (image[x][y] - total > Integer.MAX_VALUE)
+                    image[x][y] = Integer.MAX_VALUE;
                 else
                     image[x][y] -= total;
             }

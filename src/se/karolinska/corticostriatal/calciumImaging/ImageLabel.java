@@ -21,7 +21,7 @@ public class ImageLabel extends JLabel {
 
     private static final int            ROW_LENGTH  = 8;
     private int                         rows        = 1;
-    private LinkedList<CalciumImage>    images      = new LinkedList<CalciumImage>();
+    private LinkedList<CalciumImage>    images      = new LinkedList<>();
     private BufferedImage               buffer;
     private Graphics2D                  graphics;
 
@@ -83,7 +83,7 @@ public class ImageLabel extends JLabel {
     public void clearImages () {
         ReportingUtils.logMessage("Clearing images.");
         //images.clear();
-        images      = new LinkedList<CalciumImage>();
+        images      = new LinkedList<>();
         clearGraphics();
     }
 
