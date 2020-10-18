@@ -69,7 +69,7 @@ public class ImageAnalyser extends TaggedImageAnalyzer {
      *  in a private static field, so we can retrieve it from another class.
      */
     private ImageAnalyser () {
-        images = new ConcurrentLinkedQueue<CalciumImage>();
+        images = new ConcurrentLinkedQueue<>();
     }
     
 
@@ -132,6 +132,7 @@ public class ImageAnalyser extends TaggedImageAnalyzer {
                 recordImage(ti);
             }
         } catch (Exception e) {
+            record = false;
             ReportingUtils.logError(e);
         }
     }
