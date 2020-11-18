@@ -25,6 +25,7 @@ public class Processor {
     private LinkedList<TreeMap>         images      = new LinkedList<>();
     private LinkedList<CalciumImage>    difference  = new LinkedList<>();
     private LinkedList<double[][]>      cumDiff     = new LinkedList<>();
+    private int                         cumDiffN    = 0;
     private int                         width, height;
     private static ShortProcessor[]     diffImage; 
 
@@ -96,11 +97,12 @@ public class Processor {
     
 
     /**
-     *  Update the continuous difference. This is a frame-by-frame summed
-     *  difference between the mean image and the latest capture. For a single
-     *  sequence, this is identical to the regular diff, but for sequential
-     *  sequences, the continuous difference shows smaller but persistent
-     *  deviations.
+     *  Update the continuous difference.
+     * 
+     *  This is a frame-by-frame summed difference between the mean image 
+     *  and the latest capture. For a single sequence, this is identical to
+     *  the regular diff, but for sequential sequences, the continuous
+     *  difference shows smaller but persistent deviations.
      */
     private void updateContinuousDifference () {
         ShortProcessor current;
@@ -114,6 +116,10 @@ public class Processor {
         if (cumDiff.isEmpty())
             initializeCumulativeDifferences(width, height);
 
+        // Increment iteration counter
+        cumDiffN++;
+        ReportingUtils.logMessage("Updating the cumulative difference with repeat " + cumDiffN + ".");
+        
         // For every frame:
         for (int i = 0; i < ((LinkedList) images.getLast().get("difference")).size(); i++) {
             values  = cumDiff.get(i);
@@ -122,9 +128,9 @@ public class Processor {
             // For every pixel:
             for (int x = 0; x < width; x++)
                 for (int y = 0; y < height; y++)
-                    values[x][y] += (current.get(x, y));
+                    values[x][y] = ((values[x][y] / cumDiffN) * (cumDiffN - 1))
+                                 + (current.get(x, y) / cumDiffN);
 
-            minimize(values);
             cumDiff.set(i, values);
             CalciumImage diffImage = getDifference(values, width, height);
             diffImage.tags = ((LinkedList<CalciumImage>) images.getLast().get("post")).get(i).tags;
@@ -144,6 +150,7 @@ public class Processor {
      *  @param height
      */
     private void initializeCumulativeDifferences (int width, int height) {
+        cumDiffN = 0;
         for (int i = 0; i <= ((LinkedList) images.getLast().get("difference")).size(); i++) {
             double[][] values = new double[width][height];
             for (int x = 0; x < width; x++)
@@ -238,30 +245,6 @@ public class Processor {
             sequence.put("difference", new LinkedList(Arrays.asList(diffImage)));
         } catch (Exception e) {
             ReportingUtils.logError(e, "Images could not be analyzed in a timely fashion.");
-        }
-    }
-
-
-    /**
-     *  Minimize a short-array representation of a cumulative-difference image.
-     */
-    private void minimize (double[][] image) {
-        double total = 0.0;
-
-        for (int x = 0; x < width; x++)
-            for (int y = 0; y < height; y++)
-                total += image[x][y];
-        total /= (width * height);
-
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                if ((image[x][y] - total) < 0)
-                    image[x][y] = 0;
-                else if (image[x][y] - total > Integer.MAX_VALUE)
-                    image[x][y] = Integer.MAX_VALUE;
-                else
-                    image[x][y] -= total;
-            }
         }
     }
 }

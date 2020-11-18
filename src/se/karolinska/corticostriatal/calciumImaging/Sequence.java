@@ -17,7 +17,7 @@ public class Sequence extends Thread {
     private static int      maxProgress = 41;
     
     private int             sequenceCount;
-    private int             interval    = 500;
+    private int             interval    = 5000;     // Default interval between sequences
     private long            pulseTime;
     private long            startTime;
 
@@ -75,7 +75,7 @@ public class Sequence extends Thread {
         long now;
         long target;
         
-        if (start < 0)
+        if (start < 0 || step < 0)
             return;
 
         for (int i = 0; i < maxProgress; i++) {

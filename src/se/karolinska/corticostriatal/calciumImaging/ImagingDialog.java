@@ -87,14 +87,14 @@ public class ImagingDialog extends javax.swing.JFrame {
         startButton.setBackground(new java.awt.Color(-1,true));
         startButton.setFont(startButton.getFont().deriveFont(startButton.getFont().getSize()+1f));
         startButton.setText("Start Acquisition");
-        startButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(-16777216,true), 1, true));
+        startButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startButtonActionPerformed(evt);
             }
         });
 
-        snapshotSplitPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(-16777216,true)));
+        snapshotSplitPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         snapshotSplitPane.setDividerLocation(80);
         snapshotSplitPane.setDividerSize(1);
         snapshotSplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -173,7 +173,7 @@ public class ImagingDialog extends javax.swing.JFrame {
         postSpikeSnapshotPanel.getAccessibleContext().setAccessibleDescription("");
 
         histogramPanel.setBackground(new java.awt.Color(-1,true));
-        histogramPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(-16777216,true)));
+        histogramPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         histogramPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 histogramPanelMouseClicked(evt);
@@ -184,7 +184,7 @@ public class ImagingDialog extends javax.swing.JFrame {
         histogramPanel.setLayout(histogramPanelLayout);
         histogramPanelLayout.setHorizontalGroup(
             histogramPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 433, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         histogramPanelLayout.setVerticalGroup(
             histogramPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +192,7 @@ public class ImagingDialog extends javax.swing.JFrame {
         );
 
         controlContainer.setBackground(new java.awt.Color(-1,true));
-        controlContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(-16777216,true)));
+        controlContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         continuousCheckbox.setBackground(new java.awt.Color(-1,true));
         continuousCheckbox.setText("Continuous acquisition");
@@ -225,7 +225,7 @@ public class ImagingDialog extends javax.swing.JFrame {
         repetitionsInput.setEnabled(false);
 
         intervalInput.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        intervalInput.setText("500");
+        intervalInput.setText("5000");
         intervalInput.setToolTipText("Repetitions");
         intervalInput.setEnabled(false);
 
@@ -234,7 +234,7 @@ public class ImagingDialog extends javax.swing.JFrame {
         intervalLabel.setEnabled(false);
 
         LPTChannelLabelPulse.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LPTChannelLabelPulse.setText("LPT Channel (Pulse)");
+        LPTChannelLabelPulse.setText("Channel Pulse");
 
         LPTChannelInput.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         LPTChannelInput.setText("6");
@@ -255,7 +255,7 @@ public class ImagingDialog extends javax.swing.JFrame {
         });
 
         LPTChannelLabelShutter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LPTChannelLabelShutter.setText("LPT Channel (Shutter)");
+        LPTChannelLabelShutter.setText("Channel Shutter");
 
         javax.swing.GroupLayout controlContainerLayout = new javax.swing.GroupLayout(controlContainer);
         controlContainer.setLayout(controlContainerLayout);
@@ -264,30 +264,25 @@ public class ImagingDialog extends javax.swing.JFrame {
             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(controlContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(repetitionsInput, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(repetitionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(controlContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(intervalInput, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(intervalLabel))
-            .addGroup(controlContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(continuousCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(controlContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(storeAllRawCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(controlContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LPTChannelInput, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LPTChannelLabelPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(controlContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LPTChannelInputShutter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LPTChannelLabelShutter, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(controlContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(controlContainerLayout.createSequentialGroup()
+                        .addComponent(repetitionsInput, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(repetitionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(controlContainerLayout.createSequentialGroup()
+                        .addComponent(intervalInput, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(intervalLabel))
+                    .addComponent(continuousCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storeAllRawCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(controlContainerLayout.createSequentialGroup()
+                        .addComponent(LPTChannelInput, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(LPTChannelLabelPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(controlContainerLayout.createSequentialGroup()
+                        .addComponent(LPTChannelInputShutter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(LPTChannelLabelShutter, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         controlContainerLayout.setVerticalGroup(
             controlContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +324,7 @@ public class ImagingDialog extends javax.swing.JFrame {
         File.setBackground(new java.awt.Color(-4144960,true));
         File.setText("File");
 
-        saveRawButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        saveRawButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         saveRawButton.setDoubleBuffered(true);
         saveRawButton.setLabel("Save Raw Images");
         saveRawButton.addActionListener(new java.awt.event.ActionListener() {
@@ -340,7 +335,7 @@ public class ImagingDialog extends javax.swing.JFrame {
         File.add(saveRawButton);
         saveRawButton.getAccessibleContext().setAccessibleDescription("Save all the raw images in a single TIFF file");
 
-        saveDiffButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK));
+        saveDiffButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         saveDiffButton.setActionCommand("Save Differences");
         saveDiffButton.setDoubleBuffered(true);
         saveDiffButton.setLabel("Save Differences");
@@ -408,16 +403,14 @@ public class ImagingDialog extends javax.swing.JFrame {
                     .addComponent(controlContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(roiHistogramButton)
                             .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(histogramPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(snapshotSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))
+                    .addComponent(snapshotSplitPane))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -429,7 +422,7 @@ public class ImagingDialog extends javax.swing.JFrame {
                         .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(controlContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(snapshotSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE))
+                    .addComponent(snapshotSplitPane))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(histogramPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

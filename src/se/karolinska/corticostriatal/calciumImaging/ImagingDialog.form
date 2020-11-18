@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
@@ -124,6 +124,7 @@
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menu"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
     <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosed"/>
@@ -146,13 +147,10 @@
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="controlContainer" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="startButton" min="-2" pref="176" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="startButton" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                           <Component id="roiHistogramButton" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="progressBar" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
                       </Group>
@@ -161,7 +159,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="histogramPanel" max="32767" attributes="0"/>
-                  <Component id="snapshotSplitPane" alignment="1" pref="435" max="32767" attributes="0"/>
+                  <Component id="snapshotSplitPane" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -177,7 +175,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="controlContainer" min="-2" pref="193" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="snapshotSplitPane" pref="261" max="32767" attributes="0"/>
+                  <Component id="snapshotSplitPane" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -363,7 +361,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="433" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -389,37 +387,32 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jSeparator3" alignment="0" min="-2" pref="188" max="-2" attributes="1"/>
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="repetitionsInput" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="repetitionsLabel" min="-2" pref="133" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="intervalInput" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="intervalLabel" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="continuousCheckbox" min="-2" pref="178" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="storeAllRawCheckbox" min="-2" pref="178" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="LPTChannelInput" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="LPTChannelLabelPulse" min="-2" pref="125" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="LPTChannelInputShutter" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="LPTChannelLabelShutter" min="-2" pref="125" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="repetitionsInput" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="repetitionsLabel" min="-2" pref="133" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="intervalInput" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="intervalLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="continuousCheckbox" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                      <Component id="storeAllRawCheckbox" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="LPTChannelInput" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="LPTChannelLabelPulse" min="-2" pref="125" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="LPTChannelInputShutter" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="LPTChannelLabelShutter" min="-2" pref="125" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -508,7 +501,7 @@
         <Component class="javax.swing.JTextField" name="intervalInput">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="500"/>
+            <Property name="text" type="java.lang.String" value="5000"/>
             <Property name="toolTipText" type="java.lang.String" value="Repetitions"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -528,7 +521,7 @@
         <Component class="javax.swing.JLabel" name="LPTChannelLabelPulse">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="LPT Channel (Pulse)"/>
+            <Property name="text" type="java.lang.String" value="Channel Pulse"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="LPTChannelInput">
@@ -560,7 +553,7 @@
         <Component class="javax.swing.JLabel" name="LPTChannelLabelShutter">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="LPT Channel (Shutter)"/>
+            <Property name="text" type="java.lang.String" value="Channel Shutter"/>
           </Properties>
         </Component>
       </SubComponents>
